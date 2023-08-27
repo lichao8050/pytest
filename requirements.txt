@@ -1,0 +1,13 @@
+jsonpath
+openpyxl
+pytest-html
+pytest-xdist
+pytest-ordering
+pytest-rerunfailures
+allure-pytest
+pytest
+PyYAML
+requests
+allure-pytest==2.9.45
+allure-python-commons==2.9.45
+PyMySQL==1.0.2

@@ -1,0 +1,25 @@
+login_data:
+#  url, loginId，password, cod, 断言eq
+  - [ http://miao.matrixdesign.cn/api/auth/login, guoshuang, e10adc3949ba59abbe56e057f20f883e, 200, 操作成功 ]
+#
+#test2:
+#  - 昨天
+#  - 忘记了
+#  - 晴天了
+#---
+#test3:
+#  name: 有些事
+#  age: 怎么了
+#  pass:  不清楚
+#---
+#test4: {wdd: 222, hpp: 333}
+#
+#
+#test5:
+#  - 阴天
+#    手打爱得
+#    我认识的
+#
+#login:
+##  username，password
+#  - [ heqiangming, abc147258369 ]

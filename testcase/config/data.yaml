@@ -1,0 +1,21 @@
+hero:
+  name: 安琪拉
+  world: 喜欢玩火吗！成全你
+  HP: 455.5
+
+heros1: {name: 安琪拉,world: 喜欢玩火吗！成全你, HP: 455.5}
+
+heros_name:
+  - 安琪拉
+  - 黄忠
+  - 鲁班
+
+heros:
+  - name: 黄忠
+    world: 周日都被我射了
+    hp: 560
+
+heros_name_list:
+  - - 安琪拉
+    - 黄忠
+    - 鲁班
