@@ -30,13 +30,3 @@ import jsonpath
 #         token_list = jsonpath.jsonpath(res.json(), '$..token')
 #         print(token_list)
 #
-def test_xiaomiao():
-    print("小小秒秒登录")
-    url = "http://miao.matrixdesign.cn/api/auth/login"
-    json = {"loginId": "guoshuang",
-            "password": "e10adc3949ba59abbe56e057f20f883e"}
-    res = requests.post(url=url, json=json)
-    print(res.status_code)
-    print(res.json())
-    token_list = jsonpath.jsonpath(res.json(), '$..access_token')
-    print(token_list[0])
