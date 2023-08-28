@@ -13,3 +13,4 @@ allure-python-commons==2.9.45
 PyMySQL==1.0.2
 pycryptodome
 rsa
+xToolkit

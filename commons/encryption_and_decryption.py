@@ -107,6 +107,7 @@ import base64
 from Crypto.Cipher import AES
 
 # 自己定义一段秘钥--'123456789123456789'
+# 对称加密
 
 
 class EncryptDate:
