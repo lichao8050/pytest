@@ -138,9 +138,10 @@ if __name__ == '__main__':
     key = '12345678987456zs'  # 注意key只能为16位或者16位的倍数，否则报错
     username = '123456'
     print(50 * '-' + '数据加密' + 50 * '-')
-    res = EncryptDate(key).encrypt(username)
+    en = EncryptDate(key)
+    res = en.encrypt(username)
     print('%s通过秘钥%s加密后得到的密文是:%s' % (username, key, res))
     print(50 * '-' + '数据解密' + 50 * '-')
-    res2 = EncryptDate(key).decrypt(res)
+    res2 = en.decrypt(res)
     print(f'{username}通过秘钥{key}解密密后得到的明文是:{res2}')
     assert res2 == username
