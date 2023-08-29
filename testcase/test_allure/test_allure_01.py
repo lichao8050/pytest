@@ -17,7 +17,6 @@
 # @allure.link()                 定义连接              用于定义一个需要在测试报告中展示的连接
 # @allure.attachment()           附件                  添加测试报告的附件
 
-
 # 使用allure报告必须配置pytest.ini文件 即添加如下行  addopts = -vs --alluredir ./report   ./report指在当前目录下生成执行文件
 # 打开allure报告：
 # 1.allure serve ./report
