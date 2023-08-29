@@ -1,6 +1,10 @@
 login_data:
-#  url, loginId，password, cod, 断言eq
+#  url, loginId，password, cod, asser_eq
   - [ http://miao.matrixdesign.cn/api/auth/login, guoshuang, e10adc3949ba59abbe56e057f20f883e, 200, 操作成功 ]
+#  - [ http://miao.matrixdesign.cn/api/auth/login, guoshuang1, e10adc3949ba59abbe56e057f20f883e ]
+#  - [ http://miao.matrixdesign.cn/api/auth/login, guoshuang, 210adc3949ba59abbe56e057f20f883e ]
+
+
 #
 #test2:
 #  - 昨天
