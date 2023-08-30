@@ -6,10 +6,10 @@ import pytest
 from commons.request_page import HttpRequest
 from commons.read_excel_until import ExcelReader
 
-'''
+
 # 使用pytest夹具定义前置、后置
-@pytest.fixture(scope='session')
-def get_session():
+# @pytest.fixture(scope='session')
+def test_session():
     print(50 * '*' + '测试环境，开始测试' + 50 * '*')
     excel = ExcelReader(r"D:\pytest\excel\test_add_new_action.xlsx")
     url = r'http://kbs.matrixdesign.cn/api/pmtapi/base_Account/login'
@@ -25,8 +25,9 @@ def get_session():
     yield res, excel, url1
     print(50 * '*' + '结束测试' + 50 * '*')
     excel.close_file()
-    深圳市罗湖区
 
+
+'''
 @pytest.fixture(scope='session', autouse=True)
 def ERP_login():
     """正式环境"""

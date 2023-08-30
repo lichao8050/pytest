@@ -1,9 +1,17 @@
+login_data:
+  - url: http://miao.matrixdesign.cn/api/auth/login
+    method: post
+    loginid: guoshuang
+    password: e10adc3949ba59abbe56e057f20f883e
+    cod: 200
+    asser_eq: 操作成功
+    headers: {"Content-Type": "application/json"}
 #login_data:
 #  url, loginId，password, cod, asser_eq
 #  - [ http://miao.matrixdesign.cn/api/auth/login, guoshuang, e10adc3949ba59abbe56e057f20f883e, 200, 操作成功 ]
 #  - [ http://miao.matrixdesign.cn/api/auth/login, guoshuang1, e10adc3949ba59abbe56e057f20f883e ]
 #  - [ http://miao.matrixdesign.cn/api/auth/login, guoshuang, 210adc3949ba59abbe56e057f20f883e ]
-login_data:
+login_data1:
 #  url, loginId，password, cod, 断言eq
     - url: http://miao.matrixdesign.cn/api/auth/login
       loginId: guoshuang
@@ -18,3 +26,4 @@ login_data:
       cod: 200
       asser_eq: 操作成功
       method: post
+
