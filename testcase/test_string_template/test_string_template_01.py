@@ -43,49 +43,57 @@ url2 = "http://miao.matrixdesign.cn/supplychain/api/shone/oridata/addEntityData?
 print("打印替换后的URL", Template(url2).substitute(s_string))
 
 
-@pytest.mark.parametrize("test_data", xfile.read('G:\\pytest\\excel\\xiaomiao_add_test.xlsx').excel_to_dict())
-def test_jiekouchuandi(test_data):
-    allure.title(test_data['用例编号'])
-    allure.description(test_data['用例描述'])
-    print("打印传入的test_data数据：", test_data)
-    url = test_data["请求地址"]
-    dic_t = Get_Value().show_dict()
-    if '$' in url:
-        url = Template(url).substitute(dic_t)
-        print(url)
-    res = requests.request(
-        url=url,
-        method=test_data["请求方法"],
-        json=eval(test_data["json请求参数"]),
-        data=test_data['data请求参数'],
-        headers=eval(test_data['请求头部'])
-    )
-    print(res.status_code)
-    print(res.json())
+@allure.feature('requests请求测试')
+class Test_Rquests:
+    @allure.title("测试小秒登录")
+    @pytest.mark.parametrize("test_data", xfile.read('G:\\pytest\\excel\\xiaomiao_add_test.xlsx').excel_to_dict())
+    def test_jiekouchuandi(self, test_data):
+        allure.dynamic.title(test_data['用例编号'])
+        allure.dynamic.description(test_data['用例描述'])
+        print("打印传入的test_data数据：", test_data)
+        url = test_data["请求地址"]
+        dic_t = Get_Value().show_dict()
+        if '$' in url:
+            url = Template(url).substitute(dic_t)
+            print(url)
+        res = requests.request(
+            url=url,
+            method=test_data["请求方法"],
+            json=eval(test_data["json请求参数"]),
+            data=test_data['data请求参数'],
+            headers=eval(test_data['请求头部'])
+        )
+        print(res.status_code)
+        print(res.json())
 
-    if test_data["提取参数"] is not None or test_data["提取参数"] != '':
-        # 参数提取，使用jsonpath方法，提取后是一个列表
-        lis = jsonpath.jsonpath(res.json(), '$..' + test_data["提取参数"])
-        # 保存参数，很多接口会有不同参数，所以可以创建一个类，设计对应的方法保存提取共有变量
-        print(type(lis))
-        Get_Value().set_dict(test_data["提取参数"], lis[0])
-        print("打印保存后的字典", Get_Value().show_dict())
-    else:
-        print(Exception)
-    # 断言：机器帮助我们校验结果
-    # 期望返回数据里有什么东西，包含某些必要的返回值
-    # 不应该只关注状态码200，还应该关注其他关键数据是否正确
-    assert res.status_code == 200
-    assert res.status_code == test_data["预期响应码"]
-    # assert res.json()['msg'] in test_data["预期结果"]
-    for lis_t in eval(test_data["预期结果"]):
-        print(lis_t)
-        assert lis_t in res.text
+        if test_data["提取参数"] is not None or test_data["提取参数"] != '':
+            # 参数提取，使用jsonpath方法，提取后是一个列表
+            lis = jsonpath.jsonpath(res.json(), '$..' + test_data["提取参数"])
+            # 保存参数，很多接口会有不同参数，所以可以创建一个类，设计对应的方法保存提取共有变量
+            print(type(lis))
+            Get_Value().set_dict(test_data["提取参数"], lis[0])
+            print("打印保存后的字典", Get_Value().show_dict())
+        else:
+            print(Exception)
+        # 断言：机器帮助我们校验结果
+        # 期望返回数据里有什么东西，包含某些必要的返回值
+        # 不应该只关注状态码200，还应该关注其他关键数据是否正确
+        assert res.status_code == 200
+        assert res.status_code == test_data["预期响应码"]
+        # assert res.json()['msg'] in test_data["预期结果"]
+        for lis_t in eval(test_data["预期结果"]):
+            print(lis_t)
+            assert lis_t in res.text
 
 
 if __name__ == '__main__':
-    pytest.main(['-s', 'test_string_template_01.py', '--alluredir', './temp'])
-    os.system('allure generate ./temp -o ./reports')
-    # 报告写入pycharm本地目录，自动生成对应的文件夹
-    # pytest.main(["-s", "test_RomweIos_run.py", "--alluredir", "./temp"])
-    # os.system("allure generate ./temp -o ./reports --clean")
+    pytest.main(['-s',
+                 '-v',
+                 '--capture=sys',
+                 'test_string_template_01.py',
+                 '--clean-alluredir',
+                 '--alluredir=allure-results'])
+    os.system(r"allure generate -c -o reports --clean")
+#     # 报告写入pycharm本地目录，自动生成对应的文件夹
+#     # pytest.main(["-s", "test_RomweIos_run.py", "--alluredir", "./temp"])
+#     # os.system("allure generate ./temp -o ./reports --clean")
