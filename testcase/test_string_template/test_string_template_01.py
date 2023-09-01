@@ -34,8 +34,10 @@ def test_jiekouchuandi(test_data):
     )
     print(res.status_code)
     print(res.json())
-    if test_data["提取参数"] is not None or test_data["提取参数"] != '':
-        # 参数提取，使用jsonpath方法
-        lis = jsonpath.jsonpath(res.json(), '$..' + test_data["提取参数"])
-        print(lis)
 
+    if test_data["提取参数"] is not None or test_data["提取参数"] != '':
+        # 参数提取，使用jsonpath方法，提取后是一个列表
+        lis = jsonpath.jsonpath(res.json(), '$..' + test_data["提取参数"])
+        # 保存参数，很多接口会有不同参数，所以可以创建一个类，设计对应的方法保存提取共有变量
+        print(lis)
+    assert res.status_code == test_data["预期响应码"]
