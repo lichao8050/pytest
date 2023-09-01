@@ -16,7 +16,13 @@
 # @allure.severity()             用例等级              blocker、critical、normal、minor、trivial
 # @allure.link()                 定义连接              用于定义一个需要在测试报告中展示的连接
 # @allure.attachment()           附件                  添加测试报告的附件
-
+# allure 安装配置：
+# 下载地址 https://github.com/allure-framework/allure2/releasea
+# 下载后是个压缩包，解压到英文目录下，在配置环境变量（就是告诉系统你的软件在什么位置）
+# 将allure 放置的路径例如：G:\allure-2.24.0\bin 添加到系统变量的path路径里面
+# 系统cmd 输入 allure -version 查看成功版本号说明配置成功
+# 然后用pip install allure-pytest 安装包
+# 使用时要导入allure的包
 # 使用allure报告必须配置pytest.ini文件 即添加如下行  addopts = -vs --alluredir ./report   ./report指在当前目录下生成执行文件
 # 打开allure报告：
 # 1.allure serve ./report

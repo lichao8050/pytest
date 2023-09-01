@@ -14,3 +14,6 @@ PyMySQL==1.0.2
 pycryptodome
 rsa
 xToolkit
+pytest-sugar
+
+
