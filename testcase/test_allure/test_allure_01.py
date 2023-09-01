@@ -27,3 +27,16 @@
 # 打开allure报告：
 # 1.allure serve ./report
 # 2.allure generate report + allure open allure-report
+
+
+# 生成json格式的临时报告
+# 运行参数 ：--alluredir 临时报告目录
+# pytest.main(['--alluredir=./temp'])
+# #pytest.ini配置
+# addopts = -vs --alluredir ./temp
+# 将临时报告生成allure报告
+# import os
+# os.system('allure generate 临时json报告目录 -o allure报告目录 --clean')
+# allure generate 固定命令
+# -o 输出
+# --clean 清空目录下原来的报告

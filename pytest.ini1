@@ -1,10 +1,6 @@
 [pytest]
 #指定执行时候的默认信息
-addopts= '-s'
-         '-v'
-         '--capture=sys'
-         '--clean-alluredir'
-         '--alluredir=allure-results'
+addopts= -v -s --capture=sys --alluredir=report --clean-alluredir
 # addopts= -v -s --capture=sys --clean-alluredir --alluredir=./report -p no:warnings
 # - p no:warnings 表示不打印告警信息
 #注册标记
@@ -15,21 +11,19 @@ markers=
     P0:高优先级
     test:测试环境
     pro:生产环境
-
-#指定Pytest的最低版本号
-minversion=3.0
-
-#指定忽略执行的目录
-norecursedirs=.pytest_cache
-
 #指定测试目录
 testpaths=./testcase
+#指定Pytest的最低版本号
+#minversion=3.0
+
+#指定忽略执行的目录
+#norecursedirs=.pytest_cache
 
 #指定测试模块搜索的规则
-python_files=test_*
+#python_files=test_*
 
 #指定测试类搜索的规则
-python_classes=Test*
+#python_classes=Test*
 
 #指定测试函数搜索规则
-python_functions=test_*
+#python_functions=test_*

@@ -10,7 +10,7 @@ from commons.yaml_until import YamlUntil
 
 
 #
-# @pytest.mark.parametrize("username, password", YamlUntil.read_testcase_yaml(self, yaml_path="G:\\pytest\\data\\test_yaml.yml"))
+# @pytest.mark.parametrize("username, password", YamlUntil.read_testcase_yaml(self, yaml_path="G:\\pytest\\data\\test_yaml_00.yml"))
 # def test_login_01(self, username, password):
 #     res = requests.post(url=r'https://erpapi.matrixdesign.cn/pmtapi/base_Account/login', params={
 #         "username": username, "password": password
@@ -19,7 +19,7 @@ from commons.yaml_until import YamlUntil
 #
 # if __name__ == '__main__':
 #     pytest.main(['-s', 'G:\\pytest\\test_parametrize\\test_login'])
-# res = YamlUntil('./test_yaml.yml').read_yaml_data()
+# res = YamlUntil('./test_yaml_00.yml').read_yaml_data()
 # print(res)
 @pytest.fixture(scope='session', autouse=True)
 def test_setup_session():

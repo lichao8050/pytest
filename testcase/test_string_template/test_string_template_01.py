@@ -84,13 +84,8 @@ def test_jiekouchuandi(test_data):
 
 
 if __name__ == '__main__':
-    pytest.main(['-s',
-                 '-v',
-                 '--capture=sys',
-                 'test_string_template_01.py',
-                 '--clean-alluredir',
-                 '--alluredir=allure-results'])
-    os.system(r"allure generate -c -o 测试报告")
+    pytest.main(['-s', 'test_string_template_01.py', '--alluredir', './temp'])
+    os.system('allure generate ./temp -o ./reports')
     # 报告写入pycharm本地目录，自动生成对应的文件夹
     # pytest.main(["-s", "test_RomweIos_run.py", "--alluredir", "./temp"])
     # os.system("allure generate ./temp -o ./reports --clean")

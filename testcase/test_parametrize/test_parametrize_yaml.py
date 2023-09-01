@@ -8,7 +8,7 @@ from commons.yaml_until import YamlUntil
 
 
 #  读取yaml 文件，获取‘login_data’这个类中的数据，并通过url, loginId, password, cod, eq这些参数传递到用例中：
-@pytest.mark.parametrize("url, loginId, password, cod, eq", YamlUntil('../test_yaml.yml').
+@pytest.mark.parametrize("url, loginId, password, cod, eq", YamlUntil('../test_yaml_00.yml').
                          read_yaml_data()["login_data"])
 def test_xiaomiao_login_1(url, loginId, password, cod, eq):
     print("测试小秒正常登录")
@@ -25,12 +25,12 @@ def test_xiaomiao_login_1(url, loginId, password, cod, eq):
     assert result['data']['access_token'] is not None
 
 # def test_yaml():
-#     a = YamlUntil('../../data/test_yaml.yml').read_yaml_data()["login_data"]
+#     a = YamlUntil('../../data/test_yaml_00.yml').read_yaml_data()["login_data"]
 #     print(a)
 
 
 #  读取yaml 文件，获取‘login_data’这个类中的数据，并通过data直接将所有参数传递到用例中：
-@pytest.mark.parametrize("data", YamlUntil('../../data/test_yaml.yml').read_yaml_data()["login_data"])
+@pytest.mark.parametrize("data", YamlUntil('../../data/test_yaml_00.yml').read_yaml_data()["login_data"])
 def test_xiaomiao_login_2(data):
     print("测试小秒正常登录")
     print(data)
@@ -54,7 +54,7 @@ def test_xiaomiao_login_2(data):
     assert result['data']['access_token'] is not None
 
 
-@pytest.mark.parametrize("data", YamlUntil('../../data/test_yaml.yml').read_yaml_data()["login_data"])
+@pytest.mark.parametrize("data", YamlUntil('../../data/test_yaml_00.yml').read_yaml_data()["login_data"])
 def test_xiaomiao_login_3(data):
     url = data['url']
     print(url)

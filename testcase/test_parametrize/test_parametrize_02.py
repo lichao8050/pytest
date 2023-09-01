@@ -37,7 +37,7 @@ def test_paramrtrize_1(name, world):
     assert name is not None
 
 
-@pytest.mark.parametrize("url, loginId, password, cod, eq", YamlUntil('../../testcase/test_yaml.yml').read_yaml_data()["login_data"])
+@pytest.mark.parametrize("url, loginId, password, cod, eq", YamlUntil('../../testcase/test_yaml_00.yml').read_yaml_data()["login_data"])
 def test_xiaomiao_login(url, loginId, password, cod, eq):
     print("小小秒秒登录1")
     url = url
